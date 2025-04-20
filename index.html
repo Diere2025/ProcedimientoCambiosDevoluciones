@@ -17,6 +17,11 @@
         <h2>Sector Mayorista</h2>
     </header>
 
+	<div class="theme-selector">
+		<button data-set-theme="default" title="Tema Claro">Claro</button>
+		<button data-set-theme="dark" title="Tema Oscuro">Oscuro</button>
+		<!-- Puedes añadir más botones para otros temas aquí -->
+	</div>
     <main class="procedure-container">
 
         <!-- Sección 1: Objetivo -->
@@ -262,6 +267,48 @@
     <footer class="main-footer">
         <p>© 2025 - Zono Construcción. Todos los derechos reservados.</p>
     </footer>
+	<script>
+		// Espera a que el DOM esté listo
+		document.addEventListener('DOMContentLoaded', () => {
+			const themeSelector = document.querySelector('.theme-selector');
+			const themeButtons = themeSelector ? themeSelector.querySelectorAll('button[data-set-theme]') : [];
+			const currentTheme = localStorage.getItem('theme') || 'default'; // Obtener tema guardado o usar default
 
+			// Función para aplicar el tema
+			function applyTheme(themeName) {
+				// Quitar clases de tema anteriores
+				document.body.classList.remove('theme-dark'); // Añade aquí otras clases si creas más temas
+
+				// Añadir clase del nuevo tema (si no es el default)
+				if (themeName !== 'default') {
+					document.body.classList.add(`theme-${themeName}`);
+				}
+
+				// Actualizar el botón activo
+				themeButtons.forEach(btn => {
+					if (btn.getAttribute('data-set-theme') === themeName) {
+						btn.classList.add('active');
+					} else {
+						btn.classList.remove('active');
+					}
+				});
+
+				// Guardar preferencia en localStorage
+				localStorage.setItem('theme', themeName);
+				console.log(`Tema cambiado a: ${themeName}`);
+			}
+
+			// Añadir listeners a los botones
+			themeButtons.forEach(button => {
+				button.addEventListener('click', () => {
+					const themeName = button.getAttribute('data-set-theme');
+					applyTheme(themeName);
+				});
+			});
+
+			// Aplicar tema inicial al cargar la página
+			applyTheme(currentTheme);
+		});
+	</script>
 </body>
 </html>
