@@ -1,88 +1,188 @@
-/* --- Estilos Generales --- */
+/* --- style.css --- */
+
+/* --- Definición de Variables CSS --- */
+:root {
+    /* Tema Claro (Default) */
+    --bg-color: #f4f7f6;
+    --text-color: #333;
+    --container-bg: #fff;
+    --container-shadow: rgba(0, 0, 0, 0.1);
+    --header-bg: #004d40; /* Verde oscuro */
+    --header-text: #fff;
+    --footer-bg: #e0e0e0;
+    --footer-text: #555;
+
+    --section-border: #e0e0e0;
+    --section-title-color: #00796b; /* Verde medio */
+    --section-number-bg: #00796b;
+    --section-number-text: white;
+
+    --details-main-border: #a5d6a7; /* Borde verde */
+    --details-main-bg: #f0f8f7; /* Fondo verde muy pálido */
+    --details-main-summary-bg: #c8e6c9; /* Verde claro */
+    --details-main-summary-hover-bg: #b2dfdb; /* Verde más claro */
+    --details-main-summary-open-bg: #b2dfdb;
+    --details-main-summary-open-border: #a5d6a7;
+    --details-main-arrow-color: #00796b;
+    --details-main-content-bg: #ffffff;
+    --details-main-content-border: #a5d6a7;
+
+    --details-step-border: #b2dfdb; /* Borde verde más claro */
+    --details-step-bg: #f8fdfd;
+    --details-step-summary-bg: #e0f2f1; /* Fondo verde muy claro */
+    --details-step-summary-hover-bg: #c8e6c9;
+    --details-step-summary-open-bg: #c8e6c9;
+    --details-step-summary-open-border: #b2dfdb;
+    --details-step-summary-text: #004d40;
+    --details-step-arrow-color: #00796b;
+    --details-step-content-bg: #ffffff;
+    --details-step-content-border: #b2dfdb;
+
+    --step-number-bg: #80cbc4;
+    --step-number-text: #004d40;
+    --exception-number-bg: #ffcc80; /* Naranja claro */
+    --exception-number-text: #e65100; /* Naranja oscuro */
+    --responsibility-role-color: #004d40; /* Heredado de summary text */
+
+    --option-a-bg: #e8f5e9;
+    --option-b-bg: #e0f2f1;
+    --option-border: #a5d6a7;
+
+    --important-note-color: #d84315; /* Naranja/Rojo oscuro */
+    --link-color: #00796b; /* Para futuros enlaces */
+}
+
+/* --- Definición del Tema Oscuro --- */
+body.theme-dark {
+    --bg-color: #212121; /* Fondo oscuro */
+    --text-color: #e0e0e0; /* Texto claro */
+    --container-bg: #303030; /* Contenedor poco más claro */
+    --container-shadow: rgba(0, 0, 0, 0.4);
+    --header-bg: #1a1a1a; /* Cabecera muy oscura */
+    --header-text: #00e676; /* Texto cabecera verde brillante */
+    --footer-bg: #1a1a1a;
+    --footer-text: #bdbdbd; /* Texto footer gris claro */
+
+    --section-border: #424242; /* Bordes oscuros */
+    --section-title-color: #4db6ac; /* Verde azulado claro */
+    --section-number-bg: #4db6ac;
+    --section-number-text: #1a1a1a; /* Texto número oscuro */
+
+    --details-main-border: #424242;
+    --details-main-bg: #3a3a3a;
+    --details-main-summary-bg: #424242; /* Gris oscuro */
+    --details-main-summary-hover-bg: #4f4f4f;
+    --details-main-summary-open-bg: #4f4f4f;
+    --details-main-summary-open-border: #5e5e5e;
+    --details-main-arrow-color: #4db6ac;
+    --details-main-content-bg: #303030; /* Mismo que container */
+    --details-main-content-border: #424242;
+
+    --details-step-border: #4f4f4f;
+    --details-step-bg: #424242;
+    --details-step-summary-bg: #4f4f4f; /* Gris más oscuro */
+    --details-step-summary-hover-bg: #5e5e5e;
+    --details-step-summary-open-bg: #5e5e5e;
+    --details-step-summary-open-border: #6f6f6f;
+    --details-step-summary-text: #c5e1a5; /* Verde lima claro */
+    --details-step-arrow-color: #4db6ac;
+    --details-step-content-bg: #3a3a3a;
+    --details-step-content-border: #4f4f4f;
+
+    --step-number-bg: #26a69a; /* Verde azulado */
+    --step-number-text: #1a1a1a;
+    --exception-number-bg: #ffa726; /* Naranja */
+    --exception-number-text: #1a1a1a;
+    --responsibility-role-color: #c5e1a5;
+
+    --option-a-bg: #4a5c4d; /* Verde oscuro apagado */
+    --option-b-bg: #42504f; /* Verde azulado oscuro apagado */
+    --option-border: #5e5e5e;
+
+    --important-note-color: #ff8a65; /* Naranja claro */
+    --link-color: #80cbc4;
+}
+
+
+/* --- Estilos Generales (Usando Variables) --- */
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
 }
 
 .main-header, .main-footer {
     text-align: center;
     padding: 1em;
-    background-color: #004d40; /* Verde oscuro */
-    color: #fff;
+    background-color: var(--header-bg);
+    color: var(--header-text);
 }
+/* Estilos específicos para h1/h2 en header si quieres diferenciarlos */
+.main-header h1 { margin: 0; font-size: 1.8em; }
+.main-header h2 { margin: 0; font-size: 1.2em; font-weight: normal; opacity: 0.9; }
 
-.main-header h1 {
-    margin: 0;
-    font-size: 1.8em;
-}
-.main-header h2 {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: normal;
-    opacity: 0.9;
-}
 
 .procedure-container {
     max-width: 900px;
     margin: 2em auto;
     padding: 1em;
-    background-color: #fff;
+    background-color: var(--container-bg);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--container-shadow);
 }
 
 /* --- Estilos Base para Secciones --- */
 .procedure-section {
-    margin-bottom: 0; /* El margen ahora lo controla .main-section-details */
+    margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
 }
 
-/* --- Estilos para Secciones Principales Colapsables --- */
+/* --- Estilos para Secciones Principales Colapsables (Usando Variables) --- */
 .main-section-details {
-    border: 1px solid #a5d6a7; /* Borde verde */
+    border: 1px solid var(--details-main-border);
     border-radius: 6px;
-    background-color: #f0f8f7; /* Fondo verde muy pálido */
-    margin-bottom: 1.5em; /* Separación entre secciones */
+    background-color: var(--details-main-bg);
+    margin-bottom: 1.5em;
 }
 
 .main-section-details > summary {
     padding: 0.8em 1em;
     cursor: pointer;
-    background-color: #c8e6c9; /* Verde claro */
+    background-color: var(--details-main-summary-bg);
     border-radius: 5px;
-    list-style: none; /* Importante para quitar marcador por defecto */
+    list-style: none;
     display: flex;
     align-items: center;
     transition: background-color 0.2s ease;
 }
 .main-section-details > summary:hover {
-    background-color: #b2dfdb; /* Verde más claro al pasar */
+    background-color: var(--details-main-summary-hover-bg);
 }
 
 .main-section-details[open] > summary {
-     border-bottom: 1px solid #a5d6a7; /* Línea al abrir */
-     background-color: #b2dfdb; /* Cambia color al abrir */
+     border-bottom: 1px solid var(--details-main-summary-open-border);
+     background-color: var(--details-main-summary-open-bg);
      border-bottom-left-radius: 0;
      border-bottom-right-radius: 0;
 }
 
-.main-section-details > summary h2 { /* Estilo para el H2 dentro del summary principal */
+.main-section-details > summary h2 {
     margin: 0;
     flex-grow: 1;
     font-size: 1.5em;
-    color: #00796b;
+    color: var(--section-title-color); /* Usa variable */
     display: flex;
     align-items: center;
 }
 
-.section-number { /* Número de sección principal (1., 2., ...) */
-    background-color: #00796b;
-    color: white;
+.section-number {
+    background-color: var(--section-number-bg);
+    color: var(--section-number-text);
     border-radius: 50%;
     width: 1.5em;
     height: 1.5em;
@@ -95,40 +195,40 @@ body {
     flex-shrink: 0;
 }
 
-.main-section-details > summary::before { /* Indicador flecha secciones principales */
+.main-section-details > summary::before {
     content: '▶';
     font-size: 0.8em;
     margin-right: 0.6em;
     transition: transform 0.2s ease-in-out;
-    color: #00796b;
-    flex-shrink: 0; /* Evita que se achique */
+    color: var(--details-main-arrow-color);
+    flex-shrink: 0;
 }
 
 .main-section-details[open] > summary::before {
     transform: rotate(90deg);
 }
 
-.main-section-details > .section-content { /* Contenido dentro del details principal */
-    padding: 1em 1em 1em 2.5em; /* Padding (izquierdo alinea con título) */
-    background-color: #ffffff; /* Fondo blanco */
-    border-top: 1px solid #a5d6a7; /* Linea superior sutil */
-    border-radius: 0 0 5px 5px; /* Redondear esquinas inferiores */
+.main-section-details > .section-content {
+    padding: 1em 1em 1em 2.5em;
+    background-color: var(--details-main-content-bg);
+    border-top: 1px solid var(--details-main-content-border);
+    border-radius: 0 0 5px 5px;
 }
-
 
 /* --- Estilos para la lista DENTRO de Sección 3 y 4 (Pasos y Excepciones) --- */
 .steps-list,
-.exceptions-list {
-     padding-left: 0; /* Quitar padding extra */
-     padding-top: 0.5em; /* Espacio arriba */
+.exceptions-list,
+.responsibilities-list { /* Incluimos responsibilities aquí */
+     padding-left: 0;
+     padding-top: 0.5em;
 }
 
-/* --- Estilos para los <details> internos (Pasos 3.x, Excepciones 4.x, Responsabilidades 5.x) --- */
+/* --- Estilos para los <details> internos (Pasos 3.x, Excepciones 4.x, Responsabilidades 5.x) (Usando Variables) --- */
 .step-item {
     margin-bottom: 1em;
-    border: 1px solid #b2dfdb; /* Borde verde más claro */
+    border: 1px solid var(--details-step-border);
     border-radius: 6px;
-    background-color: #f8fdfd;
+    background-color: var(--details-step-bg);
 }
 .step-item:last-child {
     margin-bottom: 0;
@@ -138,31 +238,31 @@ body {
     font-weight: bold;
     padding: 0.8em 1em;
     cursor: pointer;
-    background-color: #e0f2f1; /* Fondo verde muy claro */
+    background-color: var(--details-step-summary-bg);
     border-radius: 5px;
-    list-style: none; /* Importante */
+    list-style: none;
     display: flex;
     align-items: center;
     transition: background-color 0.2s ease;
-    color: #004d40;
+    color: var(--details-step-summary-text);
 }
 .step-item > summary:hover {
-    background-color: #c8e6c9;
+    background-color: var(--details-step-summary-hover-bg);
 }
 
 .step-item[open] > summary {
-     border-bottom: 1px solid #b2dfdb;
-     background-color: #c8e6c9;
+     border-bottom: 1px solid var(--details-step-summary-open-border);
+     background-color: var(--details-step-summary-open-bg);
      border-bottom-left-radius: 0;
      border-bottom-right-radius: 0;
 }
 
-.step-item > summary::before { /* Indicador flecha para items internos */
+.step-item > summary::before {
     content: '▶';
     font-size: 0.8em;
     margin-right: 0.6em;
     transition: transform 0.2s ease-in-out;
-    color: #00796b;
+    color: var(--details-step-arrow-color);
     flex-shrink: 0;
 }
 
@@ -174,61 +274,47 @@ body {
 .step-number {
     font-size: 0.9em;
     font-weight: normal;
-    background-color: #80cbc4;
-    color: #004d40;
+    background-color: var(--step-number-bg);
+    color: var(--step-number-text);
     padding: 0.2em 0.5em;
     border-radius: 4px;
-    margin-right: 0.7em; /* ESPACIO entre número y título */
+    margin-right: 0.7em;
     flex-shrink: 0;
-    display: inline-block; /* Asegura que margen y padding funcionen */
-    vertical-align: middle; /* Alineación vertical */
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Número de excepción (4.1, 4.2...) */
 .exception-number {
     font-size: 0.9em;
     font-weight: normal;
-    background-color: #ffcc80; /* Naranja claro */
-    color: #e65100; /* Naranja oscuro */
+    background-color: var(--exception-number-bg);
+    color: var(--exception-number-text);
     padding: 0.2em 0.5em;
     border-radius: 4px;
-    margin-right: 0.7em; /* ESPACIO entre número y título */
+    margin-right: 0.7em;
     flex-shrink: 0;
-    display: inline-block; /* Asegura que margen y padding funcionen */
-    vertical-align: middle; /* Alineación vertical */
+    display: inline-block;
+    vertical-align: middle;
 }
 
 /* Estilo para el texto del rol dentro del summary de la sección 5 */
 .responsibility-role {
-    /* Hereda estilos de .step-item > summary (bold, color) */
-    /* Puedes añadir algo específico si quieres, ej: */
-    /* font-style: italic; */
-    flex-grow: 1; /* Ocupa el espacio disponible */
+    /* Hereda color de .step-item > summary */
+    flex-grow: 1;
 }
 
-/* Contenido del item interno (paso, excepción, responsabilidad) */
+/* Contenido del item interno */
 .step-detail {
-    padding: 1em 1.5em 1em 1.5em; /* Padding consistente */
-    border-top: 1px solid #b2dfdb;
-    background-color: #ffffff;
+    padding: 1em 1.5em 1em 1.5em;
+    border-top: 1px solid var(--details-step-content-border);
+    background-color: var(--details-step-content-bg);
     border-radius: 0 0 5px 5px;
 }
-/* Indentación estándar para listas dentro del detalle */
-.step-detail ul {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    padding-left: 25px;
-}
-.step-detail li {
-    margin-bottom: 0.3em;
-}
-/* Quitar margen por defecto de párrafos dentro del detalle */
-.step-detail p {
-    margin: 0 0 0.5em 0; /* Margen inferior opcional */
-}
-.step-detail p:last-child {
-    margin-bottom: 0;
-}
+.step-detail ul { margin-top: 0.5em; margin-bottom: 0.5em; padding-left: 25px; }
+.step-detail li { margin-bottom: 0.3em; }
+.step-detail p { margin: 0 0 0.5em 0; }
+.step-detail p:last-child { margin-bottom: 0; }
 
 
 /* Opciones A/B dentro de pasos */
@@ -236,22 +322,16 @@ body {
     margin-top: 0.8em;
     padding: 0.8em;
     border-radius: 4px;
-    border: 1px dashed #a5d6a7;
+    border: 1px dashed var(--option-border);
 }
-.option-a { background-color: #e8f5e9; }
-.option-b { background-color: #e0f2f1; }
+.option-a { background-color: var(--option-a-bg); }
+.option-b { background-color: var(--option-b-bg); }
 .option p { margin: 0; }
 
 /* Texto resaltado en excepciones */
 .important-note {
-    color: #d84315;
+    color: var(--important-note-color);
     font-weight: bold;
-}
-
-/* --- Estilos para la lista DENTRO de Sección 5 (Responsabilidades) --- */
-.responsibilities-list {
-    padding-left: 0; /* Quitar padding extra */
-    padding-top: 0.5em; /* Espacio arriba */
 }
 
 /* --- Footer --- */
@@ -259,7 +339,35 @@ body {
     margin-top: 2em;
     padding: 1em;
     font-size: 0.9em;
-    background-color: #e0e0e0;
-    color: #555;
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
     text-align: center;
+}
+
+/* --- Estilos para el selector de tema --- */
+.theme-selector {
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    text-align: center; /* Centrar los botones */
+    background-color: var(--container-bg); /* Fondo igual al contenedor */
+    border-bottom: 1px solid var(--section-border); /* Línea separadora */
+}
+.theme-selector button {
+    cursor: pointer;
+    padding: 0.5em 1em;
+    margin: 0 0.5em;
+    border: 1px solid var(--details-main-border);
+    border-radius: 4px;
+    background-color: var(--details-main-bg);
+    color: var(--text-color);
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+.theme-selector button:hover {
+    background-color: var(--details-main-summary-hover-bg);
+}
+.theme-selector button.active { /* Estilo para el botón del tema activo */
+    background-color: var(--section-number-bg);
+    color: var(--section-number-text);
+    border-color: var(--section-number-bg);
 }
