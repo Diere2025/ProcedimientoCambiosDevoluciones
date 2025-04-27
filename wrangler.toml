@@ -1,5 +1,6 @@
-name = "ProcedimientoCambiosDevoluciones" # O el nombre que prefieras
-compatibility_date = "2025-04-27" # Puedes usar la fecha actual o una reciente
+# wrangler.toml - CORREGIDO
+name = "procedimiento-cambios-devoluciones" # <-- CAMBIADO a minúsculas y con guiones
+compatibility_date = "2025-04-27" # Usa una fecha válida/reciente
 
 [site]
-bucket = "." # <-- ¡Este es el cambio clave! El punto "." significa "el directorio actual" (la raíz del proyecto)
+bucket = "." # <-- Esto debería estar bien si tus archivos están en la raíz
